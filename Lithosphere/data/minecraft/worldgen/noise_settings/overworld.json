@@ -12,8 +12,8 @@
   "disable_mob_generation": false,
   "legacy_random_source": false,
   "noise": {
-    "height": 576,
-    "min_y": -64,
+    "height": 832,
+    "min_y": -320,
     "size_horizontal": 1,
     "size_vertical": 2
   },
@@ -34,19 +34,30 @@
     "continents": "minecraft:overworld/continents",
     "depth": "lithosphere:depth",
     "erosion": "minecraft:overworld/erosion",
-    "final_density": "lithosphere:density/final_density",
+    "final_density": {
+      "type": "minecraft:add",
+      "argument1": "lithosphere:density/final_density",
+      "argument2": "lithosphere:nether_layer"
+    },
     "fluid_level_floodedness": {
-      "type": "range_choice",
-      "min_inclusive": 1.7,
-      "max_exclusive": 10,
-      "input": "lithosphere:caves/underground_rivers",
-      "when_in_range": {
-        "type": "minecraft:noise",
-        "noise": "minecraft:aquifer_fluid_level_floodedness",
-        "xz_scale": 0.8,
-        "y_scale": 0.67
-      },
-      "when_out_of_range": 0.8
+      "type": "minecraft:range_choice",
+      "input": "minecraft:y",
+      "min_inclusive": -320.0,
+      "max_exclusive": -128.0,
+      "when_in_range": -1.0,
+      "when_out_of_range": {
+        "type": "range_choice",
+        "min_inclusive": 1.7,
+        "max_exclusive": 10,
+        "input": "lithosphere:caves/underground_rivers",
+        "when_in_range": {
+          "type": "minecraft:noise",
+          "noise": "minecraft:aquifer_fluid_level_floodedness",
+          "xz_scale": 0.8,
+          "y_scale": 0.67
+        },
+        "when_out_of_range": 0.8
+      }
     },
     "fluid_level_spread": {
       "type": "range_choice",
@@ -296,6 +307,84 @@
           "result_state": {
             "Name": "minecraft:bedrock"
           }
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:not",
+          "invert": {
+            "type": "minecraft:y_above",
+            "anchor": {
+              "absolute": -64
+            },
+            "add_stone_depth": false,
+            "surface_depth_multiplier": 0
+          }
+        },
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": {
+            "Name": "minecraft:netherrack"
+          }
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:not",
+          "invert": {
+            "type": "minecraft:y_above",
+            "anchor": {
+              "absolute": -128
+            },
+            "add_stone_depth": false,
+            "surface_depth_multiplier": 0
+          }
+        },
+        "then_run": {
+          "type": "minecraft:sequence",
+          "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "minecraft:soul_sand_valley"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:soul_sand"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "minecraft:nether_wastes",
+                  "minecraft:crimson_forest",
+                  "minecraft:warped_forest",
+                  "minecraft:basalt_deltas"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:netherrack"
+                }
+              }
+            },
+            {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "minecraft:netherrack"
+              }
+            }
+          ]
         }
       },
       {
