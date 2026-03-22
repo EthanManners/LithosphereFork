@@ -1,0 +1,23 @@
+{
+  "values": [
+    "still_life:arid_desert",
+    "still_life:arid_highlands",
+    "still_life:desert_wetlands",
+    "still_life:semiarid_desert",
+    "still_life:wooded_semiarid_desert",
+    "still_life:xeric_shrubland",
+    "still_life:cold_desert",
+    "still_life:cold_semi_desert",
+    "still_life:dry_cold_steppe",
+    "still_life:dry_tropical_highlands",
+    "still_life:grassland_savanna",
+    "still_life:cold_barren_highlands",
+    "still_life:mediterranean_steppe",
+    "still_life:savanna_highlands",
+    "still_life:scorched_caves",
+    "still_life:shrub_steppe",
+    "still_life:tropical_dry_forest",
+    "still_life:wooded_mediterranean_steppe",
+    "still_life:wooded_savanna"
+  ]
+}

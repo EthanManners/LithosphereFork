@@ -1,0 +1,163 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+	  "feature": {
+		  "type": "minecraft:disk",
+		  "config": {
+			"half_height": 1,
+			"radius": {
+			  "type": "minecraft:uniform",
+			  "max_inclusive": 5,
+			  "min_inclusive": 4
+			},
+			"state_provider": {
+			  "fallback": {
+				"type": "minecraft:simple_state_provider",
+				"state": {
+				  "Name": "minecraft:magma_block"
+				}
+			  },
+			  "rules": [
+			  ]
+			},
+			"target": {
+			  "type": "minecraft:matching_blocks",
+			  "blocks": [
+				"minecraft:stone",
+				"minecraft:resin_block",
+				"minecraft:tuff",
+				"minecraft:pale_oak_log",
+				"minecraft:pale_oak_wood",
+				"minecraft:creaking_heart",
+				"minecraft:deepslate",
+				"minecraft:pale_moss_block"
+			  ]
+			}
+		  }
+	    },
+		"placement": [
+			{
+			  "type": "minecraft:block_predicate_filter",
+			  "predicate": {
+				"type": "minecraft:all_of",
+				"predicates": [
+					{
+						"type": "minecraft:any_of",
+						"predicates": [
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:air"
+							],
+							"offset": [
+							  0,
+							  1,
+							  0
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:air"
+							],
+							"offset": [
+							  0,
+							  2,
+							  0
+							]
+						  }
+						]
+					},
+					{
+						"type": "minecraft:any_of",
+						"predicates": [
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  0,
+							  1,
+							  0
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  0,
+							  2,
+							  0
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  0,
+							  3,
+							  0
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  0,
+							  0,
+							  1
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  0,
+							  0,
+							  -1
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  1,
+							  0,
+							  0
+							]
+						  },
+						  {
+							"type": "minecraft:matching_blocks",
+							"blocks": [
+							  "minecraft:lava"
+							],
+							"offset": [
+							  -1,
+							  0,
+							  0
+							]
+						  }
+						]
+					}
+				]
+			  }
+			}
+		]
+    },
+    "tries": 30,
+    "xz_spread": 10,
+    "y_spread": 10
+  }
+}

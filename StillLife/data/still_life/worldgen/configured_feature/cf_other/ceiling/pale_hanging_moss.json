@@ -1,0 +1,123 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": {
+	  "feature": {
+		  "type": "minecraft:block_column",
+		  "config": {
+			"allowed_placement": {
+			  "type": "minecraft:matching_blocks",
+			  "blocks": "minecraft:air"
+			},
+			"direction": "down",
+			"layers": [
+			  {
+				"height": {
+				  "type": "minecraft:weighted_list",
+				  "distribution": [
+					{
+					  "data": {
+						"type": "minecraft:uniform",
+						"max_inclusive": 5,
+						"min_inclusive": 0
+					  },
+					  "weight": 2
+					},
+					{
+					  "data": {
+						"type": "minecraft:uniform",
+						"max_inclusive": 2,
+						"min_inclusive": 0
+					  },
+					  "weight": 3
+					},
+					{
+					  "data": {
+						"type": "minecraft:uniform",
+						"max_inclusive": 3,
+						"min_inclusive": 0
+					  },
+					  "weight": 10
+					}
+				  ]
+				},
+				"provider": {
+				  "type": "minecraft:weighted_state_provider",
+				  "entries": [
+					{
+					  "data": {
+						"Name": "minecraft:pale_hanging_moss",
+						"Properties": {
+						  "tip": "false"
+						}
+					  },
+					  "weight": 4
+					},
+					{
+					  "data": {
+						"Name": "minecraft:pale_hanging_moss",
+						"Properties": {
+						  "tip": "false"
+						}
+					  },
+					  "weight": 4
+					}
+				  ]
+				}
+			  },
+			  {
+				"height": 1,
+				"provider": {
+					"type": "minecraft:weighted_state_provider",
+					"entries": [
+					  {
+						  "data": {
+							"Name": "minecraft:pale_hanging_moss",
+							"Properties": {
+							  "tip": "true"
+							}
+						  },
+						  "weight": 4
+					  },
+					  {
+						  "data": {
+							"Name": "minecraft:pale_hanging_moss",
+							"Properties": {
+							  "tip": "true"
+							}
+						  },
+						  "weight": 4
+					  }
+					]
+				}
+			  }
+			],
+			"prioritize_tip": true
+		  }
+	    },
+		"placement": [
+			{
+			  "type": "minecraft:environment_scan",
+			  "allowed_search_condition": {
+				"type": "minecraft:matching_blocks",
+				"blocks": "minecraft:air"
+			  },
+			  "direction_of_search": "up",
+			  "max_steps": 12,
+			  "target_condition": {
+				"type": "minecraft:has_sturdy_face",
+				"direction": "down"
+			  }
+			},
+			{
+			  "type": "minecraft:random_offset",
+			  "xz_spread": 0,
+			  "y_spread": -1
+			}
+		]
+    },
+    "tries": 50,
+    "xz_spread": 3,
+    "y_spread": 5
+  }
+}

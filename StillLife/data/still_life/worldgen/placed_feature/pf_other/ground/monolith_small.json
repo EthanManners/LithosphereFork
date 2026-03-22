@@ -1,0 +1,54 @@
+{
+  "feature": "still_life:cf_other/ground/monolith_small",
+  "placement": [
+    {
+      "type": "minecraft:count",
+      "count": 1
+    },
+    {
+      "type": "minecraft:fixed_placement",
+      "positions": [
+        [
+          20070,
+          100,
+          20000
+        ],
+        [
+          19930,
+          100,
+          20000
+        ],
+        [
+          20000,
+          100,
+          20070
+        ],
+        [
+          20000,
+          100,
+          19930
+        ],
+        [
+          20150,
+          50,
+          19850
+        ],
+        [
+          20150,
+          50,
+          20150
+        ],
+        [
+          19850,
+          50,
+          19850
+        ],
+        [
+          19850,
+          50,
+          20150
+        ]
+      ]
+    }
+  ]
+}
