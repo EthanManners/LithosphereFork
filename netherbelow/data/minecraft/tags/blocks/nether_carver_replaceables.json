@@ -1,0 +1,11 @@
+{
+    "replace": true,
+    "values": [
+      "#minecraft:base_stone_nether",
+      "#minecraft:nylium",
+      "#minecraft:wart_blocks",
+      "minecraft:soul_sand",
+      "minecraft:soul_soil"
+    ]
+  }
+  
